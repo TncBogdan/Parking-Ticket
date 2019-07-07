@@ -5,9 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class TicketRepository {
-    
-    public void save(Ticket ticket) {
-
-    }
+public interface TicketRepository extends JpaRepository<Ticket, Long> {
 }

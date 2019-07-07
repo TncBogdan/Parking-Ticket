@@ -22,12 +22,12 @@ public class TicketService {
 
         ticketRepository.save(ticket);
         TicketDto ticketDto = new TicketDto();
-        ticketDto.getCode(ticket.getCode());
+        ticketDto.setCode(ticket.getCode());
         return ticketDto;
     }
 
     private String generateTicketCode() {
-        return "tstedefefe";
+        return "test";
     }
 
 }
