@@ -1,0 +1,10 @@
+body {
+    background: #CCEEFF;
+    width: 35%;
+    border: 3px solid black;
+    margin: 40px;
+    padding: 40px;
+}
+input[type='button']:active{
+    background-color:red;
+}
