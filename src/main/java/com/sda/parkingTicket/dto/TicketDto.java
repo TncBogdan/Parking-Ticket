@@ -3,13 +3,14 @@ package com.sda.parkingTicket.dto;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class TicketDto {
-    private String code;
+
+    private String ticketCode;
 
     public String getCode() {
-        return code;
+        return ticketCode;
     }
 
     public void setCode(String code) {
-        this.code = code;
+        this.ticketCode = code;
     }
 }

@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 public class ParkingSpace {
     @Id
     private Long id;
-
+//test
     @NotNull(message = "Parking space status is missing")
     private boolean isFree;
 

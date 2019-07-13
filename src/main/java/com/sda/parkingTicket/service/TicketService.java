@@ -12,6 +12,7 @@ import java.util.Date;
 
 @Service
 public class TicketService {
+
     @Autowired
     private TicketRepository ticketRepository;
 
@@ -27,7 +28,10 @@ public class TicketService {
     }
 
     private String generateTicketCode() {
-        return "test";
+        return "T" + (long) (Math.floor(Math.random() * 9_000_000_000L) + 1_000_000_000);
     }
 
+
+
 }
+
