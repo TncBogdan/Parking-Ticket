@@ -5,6 +5,8 @@ body {
     margin: 40px;
     padding: 40px;
 }
-input[type='button']:active{
-    background-color:red;
+
+input[type=submit] {
+    background-color: red;
 }
+
