@@ -1,6 +1,7 @@
 package com.sda.parkingTicket.controller;
 
 import com.sda.parkingTicket.dto.PublicDto;
+import com.sda.parkingTicket.service.SubscriptionService;
 import com.sda.parkingTicket.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -16,8 +17,8 @@ public class PublicController {
     @Autowired
     private TicketService ticketService;
 
-//    @Autowired
-//    private SubscriptionService subscriptionService;
+    @Autowired
+    private SubscriptionService subscriptionService;
 
     @GetMapping(value = "/")
     public String accessPage() {
@@ -31,8 +32,8 @@ public class PublicController {
             PublicDto generatedTicket = ticketService.createTicket();
             model.addAttribute("message", generatedTicket.getCode());
         } else {
-//            boolean accessGranted = subscriptionService.isValid(publicDto.getCode());
-//            model.addAttribute("message", accessGranted ? "Access granted to the parking lot" : "Access denied");
+            boolean accessGranted = subscriptionService.isValid(publicDto.getCode());
+            model.addAttribute("message", accessGranted ? "Access granted to the parking lot" : "Access denied");
         }
 
         return "publicPage";

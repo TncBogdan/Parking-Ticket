@@ -29,8 +29,5 @@ public class TicketService {
     private String generateTicketCode() {
         return "T" + (long) (Math.floor(Math.random() * 9_000_000_000L) + 1_000_000_000);
     }
-
-
-
 }
 
