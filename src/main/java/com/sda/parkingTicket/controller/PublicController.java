@@ -28,7 +28,7 @@ public class PublicController {
     @PostMapping(value = {"/access"},
             consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public String accessParking(PublicDto publicDto, Model model) {
-        if(StringUtils.isEmpty(publicDto.getCode())) {
+        if (StringUtils.isEmpty(publicDto.getCode())) {
             PublicDto generatedTicket = ticketService.createTicket();
             model.addAttribute("message", generatedTicket.getCode());
         } else {
@@ -36,6 +36,19 @@ public class PublicController {
             model.addAttribute("message", accessGranted ? "Access granted to the parking lot" : "Access denied");
         }
 
+        return "publicPage";
+    }
+
+    @PostMapping(value = {"/subscriptionAccess"},
+            consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    public String subscriptionAccess(PublicDto publicDto, Model model) {
+        if (StringUtils.isEmpty(publicDto.getCode())) {
+            PublicDto generateSubscription = subscriptionService.createSubscription();
+            model.addAttribute("message", generateSubscription.getCode());
+        }else {
+            boolean accessGranted = subscriptionService.isValid(publicDto.getCode());
+            model.addAttribute("message", accessGranted ? "Access granted to the parking lot" : "Access denied");
+        }
         return "publicPage";
     }
 }

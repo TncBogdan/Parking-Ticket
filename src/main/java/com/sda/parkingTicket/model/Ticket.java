@@ -8,6 +8,7 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "tickets")
 public class Ticket {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -15,8 +16,7 @@ public class Ticket {
     private String code;
 
     @Range(min = 0, message = "Invalid payed amount")
-    private
-    Integer payedAmount;
+    private Integer payedAmount;
 
     private Timestamp enterDate;
 

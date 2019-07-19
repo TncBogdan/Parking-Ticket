@@ -15,8 +15,8 @@ import java.util.zip.DataFormatException;
 
 @Repository
 public interface SubscriptionRepository extends JpaRepository<Subscription, Long> {
+
     Optional<Subscription> findById(Long id);
     void deleteById(Long id);
-
     Optional<Subscription> findByCode(String code);
 }

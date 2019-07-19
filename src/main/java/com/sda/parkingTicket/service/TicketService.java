@@ -16,11 +16,13 @@ public class TicketService {
     private TicketRepository ticketRepository;
 
     public PublicDto createTicket() {
+
         Ticket ticket = new Ticket();
         ticket.setCode(generateTicketCode());
         ticket.setEnterDate(new Timestamp(new Date().getTime()));
 
         ticketRepository.save(ticket);
+
         PublicDto publicDto = new PublicDto();
         publicDto.setCode(ticket.getCode());
         return publicDto;
