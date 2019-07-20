@@ -39,16 +39,13 @@ public class PublicController {
         return "publicPage";
     }
 
-    @PostMapping(value = {"/subscriptionAccess"},
+    @PostMapping(value = {"/buy"},
             consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    public String subscriptionAccess(PublicDto publicDto, Model model) {
-        if (StringUtils.isEmpty(publicDto.getCode())) {
-            PublicDto generateSubscription = subscriptionService.createSubscription();
-            model.addAttribute("message", generateSubscription.getCode());
-        }else {
-            boolean accessGranted = subscriptionService.isValid(publicDto.getCode());
-            model.addAttribute("message", accessGranted ? "Access granted to the parking lot" : "Access denied");
-        }
+    public String buySubscription(PublicDto publicDto, Model model) {
+        // TODO: validate publicDto
+        PublicDto generateSubscription = subscriptionService.createSubscription(publicDto);
+        model.addAttribute("buyMessage", generateSubscription.getCode());
+
         return "publicPage";
     }
 }

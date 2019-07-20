@@ -10,7 +10,7 @@
     <title>Parking</title>
     <link rel="stylesheet" type="text/css" href="publicPage.css">
 
-<%--    href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">--%>
+    <%--    href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">--%>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
@@ -37,31 +37,14 @@
 <div align="center">
     <h1>Buy Subscription</h1>
 
-    <script>
-        $(function () {
-            $("#datepicker-1").datepicker();
-        });
-    </script>
+    <form action="/buy" method="POST">
+        <p>Start Date: <label for="datepicker-1"></label><input type="text" name="startDate" id="datepicker-1"/></p>
 
-    <script>
-        $(function () {
-            $("#datepicker-2").datepicker();
-        });
-    </script>
-
-    <p>Start Date: <label for="datepicker-1"></label><input type="text" id="datepicker-1"/></p>
-
-    <p>End Date: <label for="datepicker-2"></label><input type="text" id="datepicker-2"/></p>
-
-    <form action="buy" method="POST">
+        <p>End Date: <label for="datepicker-2"></label><input type="text" name="endDate" id="datepicker-2"/></p>
         <input id="input" type="submit" value="Buy subscription">
         <br>
         <br>
-        <input name="subscriptionCode" <c:out value="${message}"/>>
-
-        <br>
-        <br>
-        <textarea>" "</textarea>
+        <textarea><c:out value="${buyMessage}"/></textarea>
 
     </form>
 </div>
@@ -78,5 +61,14 @@
 <%--    </form>--%>
 <%--</div>--%>
 
+<script>
+    $(function () {
+        $("#datepicker-1").datepicker();
+    });
+
+    $(function () {
+        $("#datepicker-2").datepicker();
+    });
+</script>
 </body>
 </html>
