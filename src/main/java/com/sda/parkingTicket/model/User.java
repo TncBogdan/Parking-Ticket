@@ -2,6 +2,7 @@ package com.sda.parkingTicket.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -11,10 +12,18 @@ public class User {
     private Long id;
 
     @Size(min = 5, message = "Username must have min 5 characters")
-    private String userName;
+    private String username;
 
     @Size(min = 5, message = "Password must have min 5 characters")
     private String password;
+
+    @Transient
+    private String passwordConfirm;
+
+    @ManyToMany
+    private Set<Role> roles;
+
+
 
     public Long getId() {
         return id;
@@ -25,11 +34,11 @@ public class User {
     }
 
     public String getUsername() {
-        return userName;
+        return username;
     }
 
     public void setUsername(String username) {
-        this.userName = username;
+        this.username = username;
     }
 
     public String getPassword() {
@@ -38,5 +47,21 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getPasswordConfirm() {
+        return passwordConfirm;
+    }
+
+    public void setPasswordConfirm(String passwordConfirm) {
+        this.passwordConfirm = passwordConfirm;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 }
